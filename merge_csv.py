@@ -1,9 +1,4 @@
-# This script does three main tasks in relation to CSV files: First, it retrieves metadata from the CSV file. Second, 
-# it prepares the data by reading data from the CSV file while skipping the metadata row, reordering and renaming specific columns.
-# Third, it saves data to the file with metadata being the first row. In the main function, it extracts metadata and data from two CSV files, 
-# performs a left join operation based on two columns (i, j) from two data sets, fills missing values in the merged data with zero, and
-# finally saves the merged data to a new CSV file named 'merged.csv'. 
-# This script is helpful in handling and combining CSV data files especially dealing with metadata and specific columns.
+# Extracts metadata from two CSV files, skips the metadata row to load the data into dataframes, merges the dataframes on columns 'i' and 'j' with left join, fills any null values with 0, and saves the merged data to a new CSV file.
 import csv
 import os
 import sys

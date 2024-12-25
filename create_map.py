@@ -1,9 +1,4 @@
-"""
-This script receives four command-line arguments: a filename, the width and height of an image, and an output file name. 
-The code reads a .csv file using pandas, converting specific columns in the file to numeric format. These columns contain details about the image like its width, height, patch_x and patch_y values, and a nuclei ratio. These values are then used to calculate new values of 'i' and 'j' which correspond to adjusted x,y coordinates in an image of specified dimensions.
-The nuclei ratio is scaled by multiplying it with 255. A dummy variable initialized to 255 is also created. A new dataframe is constructed with these computed and dummy variables and it is written out to a CSV file.
-The script ends with a printed message, enclosed with a border, notifying about the completion of the output file.
-"""
+# Processes a CSV file, converts certain fields to numeric, calculates new values based on given image dimensions, and saves the results as a new CSV file, then prints the name of the output file with border decoration.
 import sys
 
 import numpy as np

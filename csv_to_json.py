@@ -1,8 +1,4 @@
-"""
-This script handles CSV file conversions to JSON. It reads CSV files from an input directory, extracts both metadata and
-data (including 'i', 'j' columns and other feature data), then combines the metadata and main data and outputs the resulting
-object as a JSON file in an output directory. If a file does not exist or an unexpected error occurs, appropriate error handling is performed.
-"""
+# Collects metadata and data from all .csv files in an input directory, storing each file's contents into a JSON object, and then writes these objects into new .json files in an output directory.
 import csv
 import json
 import os

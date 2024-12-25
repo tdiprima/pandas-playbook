@@ -1,12 +1,4 @@
-# This script performs operations on CSV files within a specified input directory:
-# First, it reads the metadata (first line of each CSV file) using the `get_metadata` function.
-# Second, the `get_data` function is used to read the rest of the data, skipping the metadata row, 
-# selecting specific columns, and renaming these columns.
-# The data is then written into a new CSV file in the output directory with 'tumor.csv' 
-# appended to the original file name using the `save_file` function.
-# If the file does not exist or encounters an unexpected error, the program will print the error 
-# message and exit.
-# After processing all CSV files in the directory, it outputs a confirmation message 'Done.'
+# Retrieves metadata and specific columns from a CSV file in an input directory, rearranges and renames those columns, and then saves the updated data with the metadata to a new CSV file in an output directory.
 import csv
 import os
 import sys
