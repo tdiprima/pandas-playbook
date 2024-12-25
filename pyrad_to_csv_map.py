@@ -1,4 +1,13 @@
-#!/usr/bin/env python
+"""
+This script manipulates data from CSV files, specifically with biological data where images and patches are in use. There are two primary formats this script interprets: the SEER VTR PDAC pyrad format and the TCGA pyrad format.
+There are a series of functions defined in the script:
+1. create_csv: Reads a given input CSV file in the SEER VTR PDAC pyrad format. It extracts features such as Image Width, Image Height, Patch Width, Patch Height, Patch X, Patch Y, and two other user defined features. It processes these features, carries out modifications like normalizations and sorting, and rewrites this new processed data into a new output CSV file.
+2. do_one_feature: Similar to create_csv, but specific to the TCGA pyrad format. It manipulates one specific feature, the 'nuclei_ratio'.
+3. check_csv: Checks the presence of given columns in a csv file and prints them. If the columns are not present, it exits the program.
+4. process_dir: Processes all CSV files in an input directory in accordance to SEER VTR PDAC pyrad format.
+5. process_one: Processes a single CSV file with the name 'input.csv' in accordance to SEER VTR PDAC pyrad format.
+The main driver of the script utilizes process_dir function, processing all CSV files in a given input directory.
+"""
 import json
 import os
 import sys

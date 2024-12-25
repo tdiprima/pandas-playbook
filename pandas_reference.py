@@ -1,3 +1,12 @@
+"""
+This script is a comprehensive tutorial on using pandas library in data manipulation. It starts by discussing how to read various formats of files. It showcases how to select different columns, rows, and summaries in pandas DataFrame.
+The script explains how to filter data using different conditions, sort data, rename columns, perform operation on columns, adding new columns, and dropping columns.
+It also provides examples on how to handle missing values by excluding, finding, or replacing them.
+The script demonstrates the 'Split-Apply-Combine' strategy in pandas for group operations.
+It presents ways to select multiple columns and rows for data filtering.
+Advanced operations such as merging and concatenating dataframes, creating new dataframes using dictionaries or list of lists, calculating across columns, operations on string in dataframe, datetime functions are also discussed.
+Other operations like changing data types of columns, creating dummy variables, setting and resetting index of dataframes, cross-tabulation, memory management and usage, random sampling of dataframe, and options for printing of dataframe are demonstrated in this script.
+"""
 # Code snippets for Pandas
 import pandas as pd
 import numpy as np
