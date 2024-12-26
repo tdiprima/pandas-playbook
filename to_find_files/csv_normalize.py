@@ -1,4 +1,6 @@
-# Loads a CSV file into a dataframe, renames the columns, sorts the rows based on the first two columns, normalizes these two columns by dividing by a fixed value representing patch width/height, and then prints the dataframe.
+# Loads a CSV file into a dataframe, renames the columns, sorts the rows based on the first two columns, normalizes
+# these two columns by dividing by a fixed value representing patch width/height, and then prints the dataframe.
+# TODO: Make sure the CSV exists
 import pandas as pd
 
 patch_wh = 200

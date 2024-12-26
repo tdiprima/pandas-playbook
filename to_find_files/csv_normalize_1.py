@@ -1,10 +1,10 @@
-# Reads CSV files from a given directory, normalizes and rounds up 'i' and 'j' column data with relation to image dimensions, sorts the DataFrame by 'i' and 'j', and writes the processed data back into the output directory as a CSV file.
+# Reads CSV files from a given directory, normalizes and rounds up 'i' and 'j' column data with relation to image dimensions,
+# sorts the DataFrame by 'i' and 'j', and writes the processed data back into the output directory as a CSV file.
+# TODO: Input CSV file
 import os
 import sys
 
-import cv2
 import numpy as np
-import openslide
 import pandas as pd
 
 

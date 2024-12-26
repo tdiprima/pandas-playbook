@@ -1,4 +1,6 @@
-# Extracts metadata from two CSV files, skips the metadata row to load the data into dataframes, merges the dataframes on columns 'i' and 'j' with left join, fills any null values with 0, and saves the merged data to a new CSV file.
+# Extracts metadata from two CSV files, skips the metadata row to load the data into dataframes, merges the dataframes
+# on columns 'i' and 'j' with left join, fills any null values with 0, and saves the merged data to a new CSV file.
+# TODO: Make sure the files exist.
 import csv
 import os
 import sys

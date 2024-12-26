@@ -1,4 +1,6 @@
-# Reads CSV data, processes it through various operations like formatting, sorting and modifying, and writes the processed data to a new CSV file along with JSON meta data, primarily for handling image data analysis across multiple files in a directory.
+# Reads CSV data, processes it through various operations like formatting, sorting and modifying, and writes the processed
+# data to a new CSV file along with JSON meta data, primarily for handling image data analysis across multiple files in a directory.
+# TODO: input.csv, output.csv
 import json
 import os
 import sys
@@ -8,9 +10,9 @@ import pandas as pd
 
 
 def create_csv(input, output, red, r_name, green, g_name):
-    '''
+    """
     File format SEER VTR PDAC pyrad
-    '''
+    """
     # Read CSV
     df = pd.read_csv(input)
 
@@ -76,9 +78,9 @@ def create_csv(input, output, red, r_name, green, g_name):
 
 
 def do_one_feature(input, output):
-    '''
+    """
     File format TCGA pyrad
-    '''
+    """
     df = pd.read_csv(input)
 
     imw = df['image_width'].iloc[0]

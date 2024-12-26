@@ -1,4 +1,6 @@
-# Reads and displays unique data values and columns of a specified Excel and CSV file; it also sorts data and iterates over a particular CSV file's rows based on a specified field.
+# Reads and displays unique data values and columns of a specified Excel and CSV file.
+# It also sorts data and iterates over a particular CSV file's rows based on a specified field.
+# TODO: Make sure the file exists
 import pandas as pd
 
 

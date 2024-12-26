@@ -1,4 +1,6 @@
-# Processes a CSV file, converts certain fields to numeric, calculates new values based on given image dimensions, and saves the results as a new CSV file, then prints the name of the output file with border decoration.
+# Processes a CSV file, converts certain fields to numeric, calculates new values based on given image dimensions,
+# and saves the results as a new CSV file, then prints the name of the output file with border decoration.
+# TODO: Input filename.csv, width, height, output.csv
 import sys
 
 import numpy as np

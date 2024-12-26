@@ -1,6 +1,7 @@
-# Collects metadata and data from all .csv files in an input directory, storing each file's contents into a JSON object, and then writes these objects into new .json files in an output directory.
+# Retrieves metadata and specific columns from a CSV file in an input directory, rearranges and renames those columns,
+# and then saves the updated data with the metadata to a new CSV file in an output directory.
+# TODO: Input and output directories
 import csv
-import json
 import os
 import sys
 
@@ -8,7 +9,7 @@ import pandas as pd
 
 
 def get_metadata(filename):
-    my_obj = {}
+    meta_row = ''
     try:
         # Get first line (metadata)
         with open(filename) as csv_file:
@@ -21,11 +22,11 @@ def get_metadata(filename):
                     line_count += 1
                     if len(row) > 1:
                         # Concatenate list
-                        blah = ','.join(row)
-                        x = json.loads(blah)
+                        meta_row = ','.join(row)
                     else:
-                        x = json.loads(row[0])
-                    my_obj["metadata"] = x
+                        meta_row = row[0]
+                else:
+                    break
         csv_file.close()
     except FileNotFoundError as e:
         print(filename, ":", e.strerror)
@@ -34,41 +35,24 @@ def get_metadata(filename):
         print("Unexpected error:", sys.exc_info()[0])
         raise
     # print(my_obj["metadata"])
-    return my_obj
+    return meta_row
 
 
 def get_data(filename):
-    my_obj = {
-        "data": {
-            "locations": {
-                "i": [],
-                "j": []
-            },
-            "features": {
-            }
-        }
-    }
     df = pd.read_csv(filename, skiprows=[0])  # Skipping metadata row
-    n_rows, n_columns = df.shape
-    my_obj["data"]["locations"]["i"] = df["i"].tolist()  # Get column data
-    my_obj["data"]["locations"]["j"] = df["j"].tolist()
-
-    for x in range(2, n_columns):  # Skipping i, j columns
-        # Save feature data to our dictionary
-        my_obj["data"]["features"][df.columns[x]] = df[df.columns[x]].tolist()
-
-    return my_obj
+    df = df[['i', 'j', 'Cancer', 'TIL', 'Tissue']]  # Swap columns b/c they screwed up.
+    df.columns = ['i', 'j', 'TIL', 'Cancer', 'Tissue']  # Rename.
+    # print(df)
+    return df
 
 
 def save_file(filename, data1, data2):
-    final_obj = {}
-    final_obj.update(data1)
-    final_obj.update(data2)
-    json_str = json.dumps(final_obj)
-    f = open(filename, "w")
-    f.write(json_str)
-    f.close()
-    # print('OUT: ' + filename)
+    # Write first row JSON
+    with open(filename, 'w') as f:
+        f.write(data1 + '\n')
+
+    with open(filename, 'a') as f:
+        data2.to_csv(f, mode='a', header=True, index=False)
 
 
 if __name__ == '__main__':
@@ -80,7 +64,9 @@ if __name__ == '__main__':
             # print(f)
             meta = get_metadata(f)
             data = get_data(f)
-            f = f.replace("csv", "json")
             f = f.replace(input, output)
+            p = f.index('2018')
+            f = f[:p] + 'tumor.csv'
+            print(f)
             save_file(f, meta, data)
     print('Done.')
